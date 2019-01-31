@@ -215,7 +215,7 @@
     <x:Reference>__ReferenceID8</x:Reference>
     <x:Reference>__ReferenceID9</x:Reference>
     <x:Reference>__ReferenceID10</x:Reference>
-    <sads:DebugSymbol.Symbol>dzBEOlxEZXZXb3Jrc1xSb2JvdHNcQWNjZXNzaW9uIFJvYm90XFNlcXVlbmNlLnhhbWwmQQPbAQ8CAQFKB1MYAgEoVgtaGQIBJV0PYR0CASJkE3IeAgEgdRd1rwECAR14G3jRAQIBGHsfxgEvAgECSsIBSuYBAgEqUA1QVwIBKVieAViSAgIBJ1azAla/AgIBJl+iAV+WAgIBJF23Al2/AgIBI3CmAXCPAgIBIXWgAXWsAQIBHnhJeFYCARt4kgF4ngECARl7UHtdAgEWgQElwwEwAgEDggEnwgEsAgEEggE1ggFzAgEFhAErwAE2AgEGhQEtvwE5AgEHhwExiwE/AgETjgE1kgFDAgEQlQE5mQFHAgENnAE9oAFLAgEKowFBsQFMAgEIiQHEAYkBvQICARWHAcQChwHnAgIBFJAByAGQAcACAgESjgHOAo4B8AICARGXAcwBlwHCAgIBD5UBzAKVAe8CAgEOngHQAZ4BxwICAQycAdACnAH8AgIBC68B1AGvAcMCAgEJ</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>dz5EOlxEZXZXb3Jrc1xSb2JvdHNcQWNjZXNzaW9uIFJvYm90XEFjY2Vzc2lvblJvYm90U2VxdWVuY2UueGFtbCZBA9sBDwIBAUoHUxgCAShWC1oZAgElXQ9hHQIBImQTch4CASB1F3WvAQIBHXgbeNEBAgEYex/GAS8CAQJKwgFK5gECASpQDVBXAgEpWJ4BWJICAgEnVrMCVr8CAgEmX6IBX5YCAgEkXbcCXb8CAgEjcKYBcI8CAgEhdaABdawBAgEeeEl4VgIBG3iSAXieAQIBGXtQe10CARaBASXDATACAQOCASfCASwCAQSCATWCAXMCAQWEASvAATYCAQaFAS2/ATkCAQeHATGLAT8CAROOATWSAUMCARCVATmZAUcCAQ2cAT2gAUsCAQqjAUGxAUwCAQiJAcQBiQG9AgIBFYcBxAKHAecCAgEUkAHIAZABwAICARKOAc4CjgHwAgIBEZcBzAGXAcICAgEPlQHMApUB7wICAQ6eAdABngHHAgIBDJwB0AKcAfwCAgELrwHUAa8BwwICAQk=</sads:DebugSymbol.Symbol>
   </Flowchart>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
@@ -329,7 +329,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Flowchart_3" sap:VirtualizedContainerService.HintSize="200,51">
+      <sap2010:ViewStateData Id="Flowchart_3" sap:VirtualizedContainerService.HintSize="644,636">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
