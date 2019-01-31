@@ -60,17 +60,20 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Plugin.Workflow</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="Accession Code generation Flowchart" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dataTable" />
       <Variable x:TypeArguments="x:String" Name="filepath" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="username" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="password" />
     </Flowchart.Variables>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID11</x:Reference>
+      <x:Reference>__ReferenceID13</x:Reference>
     </Flowchart.StartNode>
-    <FlowStep x:Name="__ReferenceID11" sap2010:WorkflowViewState.IdRef="FlowStep_1">
+    <FlowStep x:Name="__ReferenceID13" sap2010:WorkflowViewState.IdRef="FlowStep_1">
       <ui:OpenBrowser UiBrowser="{x:Null}" BrowserType="Firefox" DisplayName="Open Browser" Hidden="False" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" NewSession="True" Private="False" Url="http://localhost/AccessionCodeGen/">
         <ui:OpenBrowser.Body>
           <ActivityAction x:TypeArguments="x:Object">
@@ -82,130 +85,152 @@
         </ui:OpenBrowser.Body>
       </ui:OpenBrowser>
       <FlowStep.Next>
-        <FlowStep x:Name="__ReferenceID5" sap2010:WorkflowViewState.IdRef="FlowStep_3">
-          <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type username into username input field" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_2" SendWindowMessages="False" SimulateType="False" Text="E.F.Arthur">
-            <ui:TypeInto.Target>
-              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="27bc1c6544bdbe3a7887646a41279729" Selector="&lt;html app='firefox.exe' url='http://localhost/AccessionCodeGen/' /&gt;&lt;webctrl name='user' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
-            </ui:TypeInto.Target>
-          </ui:TypeInto>
+        <FlowStep x:Name="__ReferenceID11">
+          <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog" IsPassword="False" Label="Prompt" Title="Enter Username">
+            <ui:InputDialog.Result>
+              <OutArgument x:TypeArguments="ui:GenericValue">[username]</OutArgument>
+            </ui:InputDialog.Result>
+            <sap2010:WorkflowViewState.IdRef>InputDialog_1</sap2010:WorkflowViewState.IdRef>
+          </ui:InputDialog>
           <FlowStep.Next>
-            <FlowStep x:Name="__ReferenceID6" sap2010:WorkflowViewState.IdRef="FlowStep_5">
-              <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type password into password input field" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_4" SendWindowMessages="False" SimulateType="False" Text="shatta">
+            <FlowStep x:Name="__ReferenceID5" sap2010:WorkflowViewState.IdRef="FlowStep_3">
+              <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type username into username input field" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_2" SendWindowMessages="False" SimulateType="False" Text="[username]">
                 <ui:TypeInto.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="525b98863f94c02c25da99e87e79adf2" Selector="&lt;html app='firefox.exe' url='http://localhost/AccessionCodeGen/' /&gt;&lt;webctrl name='pass' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="27bc1c6544bdbe3a7887646a41279729" Selector="&lt;html app='firefox.exe' url='http://localhost/AccessionCodeGen/' /&gt;&lt;webctrl name='user' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
                 </ui:TypeInto.Target>
               </ui:TypeInto>
               <FlowStep.Next>
-                <FlowStep x:Name="__ReferenceID7" sap2010:WorkflowViewState.IdRef="FlowStep_4">
-                  <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Signin button" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
-                    <ui:Click.CursorPosition>
-                      <ui:CursorPosition Position="Center">
-                        <ui:CursorPosition.OffsetX>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:CursorPosition.OffsetX>
-                        <ui:CursorPosition.OffsetY>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:CursorPosition.OffsetY>
-                      </ui:CursorPosition>
-                    </ui:Click.CursorPosition>
-                    <ui:Click.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="ac5b99041378705bb7067d232cb52e87" Selector="&lt;html app='firefox.exe' url='http://localhost/AccessionCodeGen/' /&gt;&lt;webctrl tag='BUTTON' /&gt;" WaitForReady="INTERACTIVE" />
-                    </ui:Click.Target>
-                  </ui:Click>
+                <FlowStep x:Name="__ReferenceID12">
+                  <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog" IsPassword="True" Label="Prompt!" Title="Enter Password">
+                    <ui:InputDialog.Result>
+                      <OutArgument x:TypeArguments="ui:GenericValue">[password]</OutArgument>
+                    </ui:InputDialog.Result>
+                    <sap2010:WorkflowViewState.IdRef>InputDialog_2</sap2010:WorkflowViewState.IdRef>
+                  </ui:InputDialog>
                   <FlowStep.Next>
-                    <FlowStep x:Name="__ReferenceID10" sap2010:WorkflowViewState.IdRef="FlowStep_15">
-                      <ui:SelectFile DisplayName="Select data file" Filter="All files (*.*)|*.csv" sap2010:WorkflowViewState.IdRef="SelectFile_1" SelectedFile="[filepath]" />
+                    <FlowStep x:Name="__ReferenceID6" sap2010:WorkflowViewState.IdRef="FlowStep_5">
+                      <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type password into password input field" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_4" SendWindowMessages="False" SimulateType="False" Text="[password]">
+                        <ui:TypeInto.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="525b98863f94c02c25da99e87e79adf2" Selector="&lt;html app='firefox.exe' url='http://localhost/AccessionCodeGen/' /&gt;&lt;webctrl name='pass' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
+                        </ui:TypeInto.Target>
+                      </ui:TypeInto>
                       <FlowStep.Next>
-                        <FlowStep x:Name="__ReferenceID8" sap2010:WorkflowViewState.IdRef="FlowStep_8">
-                          <ui:ReadCsvFile Encoding="{x:Null}" DataTable="[dataTable]" Delimitator="Comma" DisplayName="Read datasheet " FilePath="[filepath]" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
+                        <FlowStep x:Name="__ReferenceID7" sap2010:WorkflowViewState.IdRef="FlowStep_4">
+                          <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Signin button" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                            <ui:Click.CursorPosition>
+                              <ui:CursorPosition Position="Center">
+                                <ui:CursorPosition.OffsetX>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetX>
+                                <ui:CursorPosition.OffsetY>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetY>
+                              </ui:CursorPosition>
+                            </ui:Click.CursorPosition>
+                            <ui:Click.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="ac5b99041378705bb7067d232cb52e87" Selector="&lt;html app='firefox.exe' url='http://localhost/AccessionCodeGen/' /&gt;&lt;webctrl tag='BUTTON' /&gt;" WaitForReady="INTERACTIVE" />
+                            </ui:Click.Target>
+                          </ui:Click>
                           <FlowStep.Next>
-                            <FlowStep x:Name="__ReferenceID9" sap2010:WorkflowViewState.IdRef="FlowStep_7">
-                              <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dataTable]" DisplayName="For Each Row" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
-                                <ui:ForEachRow.Body>
-                                  <ActivityAction x:TypeArguments="sd:DataRow">
-                                    <ActivityAction.Argument>
-                                      <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
-                                    </ActivityAction.Argument>
-                                    <Sequence sap2010:WorkflowViewState.IdRef="Sequence_4">
-                                      <If Condition="[row(&quot;Dewey&quot;).ToString&lt;&gt;&quot;No Data&quot;]" sap2010:WorkflowViewState.IdRef="If_1">
-                                        <If.Then>
-                                          <Sequence sap2010:WorkflowViewState.IdRef="Sequence_2">
-                                            <Flowchart sap2010:WorkflowViewState.IdRef="Flowchart_3" StartNode="{x:Reference __ReferenceID4}">
-                                              <FlowStep x:Name="__ReferenceID4" sap2010:WorkflowViewState.IdRef="FlowStep_20">
-                                                <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'INPUT'" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_23" SendWindowMessages="False" SimulateType="False" Text="[row(&quot;Title&quot;).ToString]">
-                                                  <ui:TypeInto.Target>
-                                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="48a4000f1bf96fd3d7feed8e161156d1" Selector="&lt;html app='firefox.exe' url='http://localhost/AccessionCodeGen/main/*' /&gt;&lt;webctrl id='title' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
-                                                  </ui:TypeInto.Target>
-                                                </ui:TypeInto>
-                                                <FlowStep.Next>
-                                                  <FlowStep x:Name="__ReferenceID3" sap2010:WorkflowViewState.IdRef="FlowStep_19">
-                                                    <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'INPUT  isbn'" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_24" SendWindowMessages="False" SimulateType="False" Text="[row(&quot;ISBN&quot;).ToString]">
-                                                      <ui:TypeInto.Target>
-                                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="25d7170cddfbc451b6013cd46c480f72" Selector="&lt;html app='firefox.exe' url='http://localhost/AccessionCodeGen/main/*' /&gt;&lt;webctrl id='isbn' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
-                                                      </ui:TypeInto.Target>
-                                                    </ui:TypeInto>
-                                                    <FlowStep.Next>
-                                                      <FlowStep x:Name="__ReferenceID1" sap2010:WorkflowViewState.IdRef="FlowStep_18">
-                                                        <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'INPUT'" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_25" SendWindowMessages="False" SimulateType="False" Text="[row(&quot;Dewey&quot;).ToString]">
+                            <FlowStep x:Name="__ReferenceID10" sap2010:WorkflowViewState.IdRef="FlowStep_15">
+                              <ui:SelectFile DisplayName="Select data file" Filter="All files (*.*)|*.csv" sap2010:WorkflowViewState.IdRef="SelectFile_1" SelectedFile="[filepath]" />
+                              <FlowStep.Next>
+                                <FlowStep x:Name="__ReferenceID8" sap2010:WorkflowViewState.IdRef="FlowStep_8">
+                                  <ui:ReadCsvFile Encoding="{x:Null}" DataTable="[dataTable]" Delimitator="Comma" DisplayName="Read datasheet " FilePath="[filepath]" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
+                                  <FlowStep.Next>
+                                    <FlowStep x:Name="__ReferenceID9" sap2010:WorkflowViewState.IdRef="FlowStep_7">
+                                      <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dataTable]" DisplayName="For Each Row" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+                                        <ui:ForEachRow.Body>
+                                          <ActivityAction x:TypeArguments="sd:DataRow">
+                                            <ActivityAction.Argument>
+                                              <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+                                            </ActivityAction.Argument>
+                                            <Sequence sap2010:WorkflowViewState.IdRef="Sequence_4">
+                                              <If Condition="[row(&quot;Dewey&quot;).ToString&lt;&gt;&quot;No Data&quot;]" sap2010:WorkflowViewState.IdRef="If_1">
+                                                <If.Then>
+                                                  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_2">
+                                                    <Flowchart sap2010:WorkflowViewState.IdRef="Flowchart_3" StartNode="{x:Reference __ReferenceID4}">
+                                                      <FlowStep x:Name="__ReferenceID4" sap2010:WorkflowViewState.IdRef="FlowStep_20">
+                                                        <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'INPUT'" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_23" SendWindowMessages="False" SimulateType="False" Text="[row(&quot;Title&quot;).ToString]">
                                                           <ui:TypeInto.Target>
-                                                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="ba865e621e8c12e9fab0ec375e9e38d0" Selector="&lt;html app='firefox.exe' url='http://localhost/AccessionCodeGen/main/*' /&gt;&lt;webctrl id='cn' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
+                                                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="48a4000f1bf96fd3d7feed8e161156d1" Selector="&lt;html app='firefox.exe' url='http://localhost/AccessionCodeGen/main/*' /&gt;&lt;webctrl id='title' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
                                                           </ui:TypeInto.Target>
                                                         </ui:TypeInto>
                                                         <FlowStep.Next>
-                                                          <FlowStep x:Name="__ReferenceID0" sap2010:WorkflowViewState.IdRef="FlowStep_17">
-                                                            <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'INPUT'" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_26" SendWindowMessages="False" SimulateType="False" Text="[row(&quot;QTY incl. Sets&quot;).ToString]">
+                                                          <FlowStep x:Name="__ReferenceID3" sap2010:WorkflowViewState.IdRef="FlowStep_19">
+                                                            <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'INPUT  isbn'" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_24" SendWindowMessages="False" SimulateType="False" Text="[row(&quot;ISBN&quot;).ToString]">
                                                               <ui:TypeInto.Target>
-                                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="03c3a07ee3b866bcbfa86e66e90183df" Selector="&lt;html app='firefox.exe' url='http://localhost/AccessionCodeGen/main/*' /&gt;&lt;webctrl id='qty' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
+                                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="25d7170cddfbc451b6013cd46c480f72" Selector="&lt;html app='firefox.exe' url='http://localhost/AccessionCodeGen/main/*' /&gt;&lt;webctrl id='isbn' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
                                                               </ui:TypeInto.Target>
                                                             </ui:TypeInto>
                                                             <FlowStep.Next>
-                                                              <FlowStep x:Name="__ReferenceID2" sap2010:WorkflowViewState.IdRef="FlowStep_16">
-                                                                <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'BUTTON  add'" sap2010:WorkflowViewState.IdRef="Click_16" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
-                                                                  <ui:Click.CursorPosition>
-                                                                    <ui:CursorPosition Position="Center">
-                                                                      <ui:CursorPosition.OffsetX>
-                                                                        <InArgument x:TypeArguments="x:Int32" />
-                                                                      </ui:CursorPosition.OffsetX>
-                                                                      <ui:CursorPosition.OffsetY>
-                                                                        <InArgument x:TypeArguments="x:Int32" />
-                                                                      </ui:CursorPosition.OffsetY>
-                                                                    </ui:CursorPosition>
-                                                                  </ui:Click.CursorPosition>
-                                                                  <ui:Click.Target>
-                                                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="7bd5fea8d44e8597a7a36957d6319306" Selector="&lt;html app='firefox.exe' url='http://localhost/AccessionCodeGen/main/*' /&gt;&lt;webctrl tag='BUTTON' /&gt;" WaitForReady="INTERACTIVE" />
-                                                                  </ui:Click.Target>
-                                                                </ui:Click>
+                                                              <FlowStep x:Name="__ReferenceID1" sap2010:WorkflowViewState.IdRef="FlowStep_18">
+                                                                <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'INPUT'" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_25" SendWindowMessages="False" SimulateType="False" Text="[row(&quot;Dewey&quot;).ToString]">
+                                                                  <ui:TypeInto.Target>
+                                                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="ba865e621e8c12e9fab0ec375e9e38d0" Selector="&lt;html app='firefox.exe' url='http://localhost/AccessionCodeGen/main/*' /&gt;&lt;webctrl id='cn' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
+                                                                  </ui:TypeInto.Target>
+                                                                </ui:TypeInto>
+                                                                <FlowStep.Next>
+                                                                  <FlowStep x:Name="__ReferenceID0" sap2010:WorkflowViewState.IdRef="FlowStep_17">
+                                                                    <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'INPUT'" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_26" SendWindowMessages="False" SimulateType="False" Text="[row(&quot;QTY incl. Sets&quot;).ToString]">
+                                                                      <ui:TypeInto.Target>
+                                                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="03c3a07ee3b866bcbfa86e66e90183df" Selector="&lt;html app='firefox.exe' url='http://localhost/AccessionCodeGen/main/*' /&gt;&lt;webctrl id='qty' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
+                                                                      </ui:TypeInto.Target>
+                                                                    </ui:TypeInto>
+                                                                    <FlowStep.Next>
+                                                                      <FlowStep x:Name="__ReferenceID2" sap2010:WorkflowViewState.IdRef="FlowStep_16">
+                                                                        <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'BUTTON  add'" sap2010:WorkflowViewState.IdRef="Click_16" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                                                                          <ui:Click.CursorPosition>
+                                                                            <ui:CursorPosition Position="Center">
+                                                                              <ui:CursorPosition.OffsetX>
+                                                                                <InArgument x:TypeArguments="x:Int32" />
+                                                                              </ui:CursorPosition.OffsetX>
+                                                                              <ui:CursorPosition.OffsetY>
+                                                                                <InArgument x:TypeArguments="x:Int32" />
+                                                                              </ui:CursorPosition.OffsetY>
+                                                                            </ui:CursorPosition>
+                                                                          </ui:Click.CursorPosition>
+                                                                          <ui:Click.Target>
+                                                                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="7bd5fea8d44e8597a7a36957d6319306" Selector="&lt;html app='firefox.exe' url='http://localhost/AccessionCodeGen/main/*' /&gt;&lt;webctrl tag='BUTTON' /&gt;" WaitForReady="INTERACTIVE" />
+                                                                          </ui:Click.Target>
+                                                                        </ui:Click>
+                                                                      </FlowStep>
+                                                                    </FlowStep.Next>
+                                                                  </FlowStep>
+                                                                </FlowStep.Next>
                                                               </FlowStep>
                                                             </FlowStep.Next>
                                                           </FlowStep>
                                                         </FlowStep.Next>
                                                       </FlowStep>
-                                                    </FlowStep.Next>
-                                                  </FlowStep>
-                                                </FlowStep.Next>
-                                              </FlowStep>
-                                              <x:Reference>__ReferenceID0</x:Reference>
-                                              <x:Reference>__ReferenceID1</x:Reference>
-                                              <x:Reference>__ReferenceID2</x:Reference>
-                                              <x:Reference>__ReferenceID3</x:Reference>
-                                            </Flowchart>
-                                          </Sequence>
-                                        </If.Then>
-                                      </If>
-                                    </Sequence>
-                                  </ActivityAction>
-                                </ui:ForEachRow.Body>
-                              </ui:ForEachRow>
+                                                      <x:Reference>__ReferenceID0</x:Reference>
+                                                      <x:Reference>__ReferenceID1</x:Reference>
+                                                      <x:Reference>__ReferenceID2</x:Reference>
+                                                      <x:Reference>__ReferenceID3</x:Reference>
+                                                    </Flowchart>
+                                                  </Sequence>
+                                                </If.Then>
+                                              </If>
+                                            </Sequence>
+                                          </ActivityAction>
+                                        </ui:ForEachRow.Body>
+                                      </ui:ForEachRow>
+                                    </FlowStep>
+                                  </FlowStep.Next>
+                                </FlowStep>
+                              </FlowStep.Next>
                             </FlowStep>
                           </FlowStep.Next>
                         </FlowStep>
                       </FlowStep.Next>
                     </FlowStep>
                   </FlowStep.Next>
+                  <sap2010:WorkflowViewState.IdRef>FlowStep_21</sap2010:WorkflowViewState.IdRef>
                 </FlowStep>
               </FlowStep.Next>
             </FlowStep>
           </FlowStep.Next>
+          <sap2010:WorkflowViewState.IdRef>FlowStep_22</sap2010:WorkflowViewState.IdRef>
         </FlowStep>
       </FlowStep.Next>
     </FlowStep>
@@ -215,7 +240,9 @@
     <x:Reference>__ReferenceID8</x:Reference>
     <x:Reference>__ReferenceID9</x:Reference>
     <x:Reference>__ReferenceID10</x:Reference>
-    <sads:DebugSymbol.Symbol>dz5EOlxEZXZXb3Jrc1xSb2JvdHNcQWNjZXNzaW9uIFJvYm90XEFjY2Vzc2lvblJvYm90U2VxdWVuY2UueGFtbCZBA9sBDwIBAUoHUxgCAShWC1oZAgElXQ9hHQIBImQTch4CASB1F3WvAQIBHXgbeNEBAgEYex/GAS8CAQJKwgFK5gECASpQDVBXAgEpWJ4BWJICAgEnVrMCVr8CAgEmX6IBX5YCAgEkXbcCXb8CAgEjcKYBcI8CAgEhdaABdawBAgEeeEl4VgIBG3iSAXieAQIBGXtQe10CARaBASXDATACAQOCASfCASwCAQSCATWCAXMCAQWEASvAATYCAQaFAS2/ATkCAQeHATGLAT8CAROOATWSAUMCARCVATmZAUcCAQ2cAT2gAUsCAQqjAUGxAUwCAQiJAcQBiQG9AgIBFYcBxAKHAecCAgEUkAHIAZABwAICARKOAc4CjgHwAgIBEZcBzAGXAcICAgEPlQHMApUB7wICAQ6eAdABngHHAgIBDJwB0AKcAfwCAgELrwHUAa8BwwICAQk=</sads:DebugSymbol.Symbol>
+    <x:Reference>__ReferenceID11</x:Reference>
+    <x:Reference>__ReferenceID12</x:Reference>
+    <sads:DebugSymbol.Symbol>dz5EOlxEZXZXb3Jrc1xSb2JvdHNcQWNjZXNzaW9uIFJvYm90XEFjY2Vzc2lvblJvYm90U2VxdWVuY2UueGFtbC5CA/YBDwIBAU0HVhgCATJZC14cAgEtYQ9lHQIBKmgTbSQCASVwF3QlAgEidxuFASYCASCIAR+IAbcBAgEdiwEjiwHZAQIBGI4BJ9kBNwIBAk3CAU3mAQIBNFMNU1cCATNZYllqAgExWz5bSAIBL1lxWYEBAgEuY6IBY5YCAgEsYbcCYcMCAgEraGlocgIBKWpGalACASdoeWiJAQIBJnKqAXKeAgIBJHC/AnDLAgIBI4MBrgGDAZcCAgEhiAGoAYgBtAECAR6LAVGLAV4CARuLAZoBiwGmAQIBGY4BWI4BZQIBFpQBLdYBOAIBA5UBL9UBNAIBBJUBPZUBewIBBZcBM9MBPgIBBpgBNdIBQQIBB5oBOZ4BRwIBE6EBPaUBSwIBEKgBQawBTwIBDa8BRbMBUwIBCrYBScQBVAIBCJwBzAGcAcUCAgEVmgHMApoB7wICARSjAdABowHIAgIBEqEB1gKhAfgCAgERqgHUAaoBygICAQ+oAdQCqAH3AgIBDrEB2AGxAc8CAgEMrwHYAq8BhAMCAQvCAdwBwgHLAgIBCQ==</sads:DebugSymbol.Symbol>
   </Flowchart>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
@@ -233,7 +260,21 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="InputDialog_1" sap:VirtualizedContainerService.HintSize="200,51">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
       <sap2010:ViewStateData Id="TypeInto_2" sap:VirtualizedContainerService.HintSize="200,51">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="InputDialog_2" sap:VirtualizedContainerService.HintSize="200,51">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -323,9 +364,9 @@
       <sap2010:ViewStateData Id="FlowStep_20">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">330,134.5</av:Point>
+            <av:Point x:Key="ShapeLocation">340,134.5</av:Point>
             <av:Size x:Key="ShapeSize">200,51</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">430,185.5 430,215.5 510,215.5 510,355.5 60,355.5 60,175.5 180,175.5 180,214.5</av:PointCollection>
+            <av:PointCollection x:Key="ConnectorLocation">440,185.5 440,215.5 500,215.5 500,355.5 50,355.5 50,175.5 180,175.5 180,214.5</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
@@ -335,7 +376,7 @@
             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
             <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
             <av:Size x:Key="ShapeSize">60,75</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">330,40 430,40 430,134.5</av:PointCollection>
+            <av:PointCollection x:Key="ConnectorLocation">330,40 440,40 440,134.5</av:PointCollection>
             <x:Double x:Key="Width">630</x:Double>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
@@ -355,7 +396,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="ForEachRow_2" sap:VirtualizedContainerService.HintSize="516,595">
+      <sap2010:ViewStateData Id="ForEachRow_2" sap:VirtualizedContainerService.HintSize="200,51">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -365,7 +406,7 @@
       <sap2010:ViewStateData Id="FlowStep_7">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">420,304.5</av:Point>
+            <av:Point x:Key="ShapeLocation">440,374.5</av:Point>
             <av:Size x:Key="ShapeSize">200,51</av:Size>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
@@ -375,7 +416,7 @@
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">160,374.5</av:Point>
             <av:Size x:Key="ShapeSize">200,51</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">360,400 390,400 390,330 420,330</av:PointCollection>
+            <av:PointCollection x:Key="ConnectorLocation">360,400 440,400</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
@@ -400,9 +441,18 @@
       <sap2010:ViewStateData Id="FlowStep_5">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">450,215.5</av:Point>
+            <av:Point x:Key="ShapeLocation">450,285.5</av:Point>
             <av:Size x:Key="ShapeSize">200,51</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">450,241 420,241 420,240 360,240</av:PointCollection>
+            <av:PointCollection x:Key="ConnectorLocation">450,311 420,311 420,240 360,240</av:PointCollection>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="FlowStep_21">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">450,195.5</av:Point>
+            <av:Size x:Key="ShapeSize">200,51</av:Size>
+            <av:PointCollection x:Key="ConnectorLocation">550,246.5 550,285.5</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
@@ -411,7 +461,16 @@
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">450,114.5</av:Point>
             <av:Size x:Key="ShapeSize">200,51</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">550,165.5 550,215.5</av:PointCollection>
+            <av:PointCollection x:Key="ConnectorLocation">550,165.5 550,195.5</av:PointCollection>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="FlowStep_22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">450,14.5</av:Point>
+            <av:Size x:Key="ShapeSize">200,51</av:Size>
+            <av:PointCollection x:Key="ConnectorLocation">550,65.5 550,114.5</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
@@ -420,22 +479,22 @@
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">200,114.5</av:Point>
             <av:Size x:Key="ShapeSize">200,51</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">400,140 450,140</av:PointCollection>
+            <av:PointCollection x:Key="ConnectorLocation">400,140 430,140 430,40 450,40</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Flowchart_1" sap:VirtualizedContainerService.HintSize="664,636">
+      <sap2010:ViewStateData Id="Flowchart_1" sap:VirtualizedContainerService.HintSize="674,636">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
             <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
             <av:Size x:Key="ShapeSize">60,75</av:Size>
             <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,114.5</av:PointCollection>
-            <x:Double x:Key="Width">650</x:Double>
+            <x:Double x:Key="Width">660</x:Double>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Sequence_5" sap:VirtualizedContainerService.HintSize="704,716" />
+      <sap2010:ViewStateData Id="Sequence_5" sap:VirtualizedContainerService.HintSize="714,716" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>
