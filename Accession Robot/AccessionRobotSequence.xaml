@@ -85,12 +85,11 @@
         </ui:OpenBrowser.Body>
       </ui:OpenBrowser>
       <FlowStep.Next>
-        <FlowStep x:Name="__ReferenceID11">
-          <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog" IsPassword="False" Label="Prompt" Title="Enter Username">
+        <FlowStep x:Name="__ReferenceID11" sap2010:WorkflowViewState.IdRef="FlowStep_22">
+          <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Prompt" Title="Enter Username">
             <ui:InputDialog.Result>
               <OutArgument x:TypeArguments="ui:GenericValue">[username]</OutArgument>
             </ui:InputDialog.Result>
-            <sap2010:WorkflowViewState.IdRef>InputDialog_1</sap2010:WorkflowViewState.IdRef>
           </ui:InputDialog>
           <FlowStep.Next>
             <FlowStep x:Name="__ReferenceID5" sap2010:WorkflowViewState.IdRef="FlowStep_3">
@@ -100,16 +99,15 @@
                 </ui:TypeInto.Target>
               </ui:TypeInto>
               <FlowStep.Next>
-                <FlowStep x:Name="__ReferenceID12">
-                  <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog" IsPassword="True" Label="Prompt!" Title="Enter Password">
+                <FlowStep x:Name="__ReferenceID12" sap2010:WorkflowViewState.IdRef="FlowStep_21">
+                  <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog" sap2010:WorkflowViewState.IdRef="InputDialog_2" IsPassword="True" Label="Prompt!" Title="Enter Password">
                     <ui:InputDialog.Result>
                       <OutArgument x:TypeArguments="ui:GenericValue">[password]</OutArgument>
                     </ui:InputDialog.Result>
-                    <sap2010:WorkflowViewState.IdRef>InputDialog_2</sap2010:WorkflowViewState.IdRef>
                   </ui:InputDialog>
                   <FlowStep.Next>
                     <FlowStep x:Name="__ReferenceID6" sap2010:WorkflowViewState.IdRef="FlowStep_5">
-                      <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type password into password input field" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_4" SendWindowMessages="False" SimulateType="False" Text="[password]">
+                      <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Private: Type password into password input field" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_4" SendWindowMessages="False" SimulateType="False" Text="[password]">
                         <ui:TypeInto.Target>
                           <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="525b98863f94c02c25da99e87e79adf2" Selector="&lt;html app='firefox.exe' url='http://localhost/AccessionCodeGen/' /&gt;&lt;webctrl name='pass' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
                         </ui:TypeInto.Target>
@@ -225,12 +223,10 @@
                       </FlowStep.Next>
                     </FlowStep>
                   </FlowStep.Next>
-                  <sap2010:WorkflowViewState.IdRef>FlowStep_21</sap2010:WorkflowViewState.IdRef>
                 </FlowStep>
               </FlowStep.Next>
             </FlowStep>
           </FlowStep.Next>
-          <sap2010:WorkflowViewState.IdRef>FlowStep_22</sap2010:WorkflowViewState.IdRef>
         </FlowStep>
       </FlowStep.Next>
     </FlowStep>
@@ -242,7 +238,7 @@
     <x:Reference>__ReferenceID10</x:Reference>
     <x:Reference>__ReferenceID11</x:Reference>
     <x:Reference>__ReferenceID12</x:Reference>
-    <sads:DebugSymbol.Symbol>dz5EOlxEZXZXb3Jrc1xSb2JvdHNcQWNjZXNzaW9uIFJvYm90XEFjY2Vzc2lvblJvYm90U2VxdWVuY2UueGFtbC5CA/YBDwIBAU0HVhgCATJZC14cAgEtYQ9lHQIBKmgTbSQCASVwF3QlAgEidxuFASYCASCIAR+IAbcBAgEdiwEjiwHZAQIBGI4BJ9kBNwIBAk3CAU3mAQIBNFMNU1cCATNZYllqAgExWz5bSAIBL1lxWYEBAgEuY6IBY5YCAgEsYbcCYcMCAgEraGlocgIBKWpGalACASdoeWiJAQIBJnKqAXKeAgIBJHC/AnDLAgIBI4MBrgGDAZcCAgEhiAGoAYgBtAECAR6LAVGLAV4CARuLAZoBiwGmAQIBGY4BWI4BZQIBFpQBLdYBOAIBA5UBL9UBNAIBBJUBPZUBewIBBZcBM9MBPgIBBpgBNdIBQQIBB5oBOZ4BRwIBE6EBPaUBSwIBEKgBQawBTwIBDa8BRbMBUwIBCrYBScQBVAIBCJwBzAGcAcUCAgEVmgHMApoB7wICARSjAdABowHIAgIBEqEB1gKhAfgCAgERqgHUAaoBygICAQ+oAdQCqAH3AgIBDrEB2AGxAc8CAgEMrwHYAq8BhAMCAQvCAdwBwgHLAgIBCQ==</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>dz5EOlxEZXZXb3Jrc1xSb2JvdHNcQWNjZXNzaW9uIFJvYm90XEFjY2Vzc2lvblJvYm90U2VxdWVuY2UueGFtbC5CA/IBDwIBAU0HVhgCATJZC10cAgEtYA9kHQIBKmcTayQCASVuF3IlAgEidRuDASYCASCGAR+GAbcBAgEdiQEjiQHZAQIBGIwBJ9cBNwIBAk3CAU3mAQIBNFMNU1cCATNZkgFZmgECATFbPltIAgEvWaEBWbEBAgEuYqIBYpYCAgEsYLcCYMMCAgErZ5kBZ6IBAgEpaUZpUAIBJ2epAWe5AQIBJnCqAXCeAgIBJG7IAm7UAgIBI4EBrgGBAZcCAgEhhgGoAYYBtAECAR6JAVGJAV4CARuJAZoBiQGmAQIBGYwBWIwBZQIBFpIBLdQBOAIBA5MBL9MBNAIBBJMBPZMBewIBBZUBM9EBPgIBBpYBNdABQQIBB5gBOZwBRwIBE58BPaMBSwIBEKYBQaoBTwIBDa0BRbEBUwIBCrQBScIBVAIBCJoBzAGaAcUCAgEVmAHMApgB7wICARShAdABoQHIAgIBEp8B1gKfAfgCAgERqAHUAagBygICAQ+mAdQCpgH3AgIBDq8B2AGvAc8CAgEMrQHYAq0BhAMCAQvAAdwBwAHLAgIBCQ==</sads:DebugSymbol.Symbol>
   </Flowchart>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
