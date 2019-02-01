@@ -1,7 +1,7 @@
 {
-  "name": "Accession Robot",
-  "description": "Blank Process",
-  "main": "AccessionRobotSequence.xaml",
+  "name": "EvergreenCatalogingRobot",
+  "description": "Automated Cataloging",
+  "main": "Main.xaml",
   "dependencies": {
     "UiPath.UIAutomation.Activities": "[19.1.0]",
     "UiPath.System.Activities": "[18.4.2]",
@@ -10,7 +10,7 @@
   },
   "schemaVersion": "3.2",
   "studioVersion": "19.1.0.0",
-  "projectVersion": "1.0.2",
+  "projectVersion": "1.0.0",
   "runtimeOptions": {
     "autoDispose": false,
     "excludedLoggedData": [
@@ -22,9 +22,5 @@
   "libraryOptions": {
     "includeOriginalXaml": false,
     "privateWorkflows": []
-  },
-  "arguments": {
-    "input": [],
-    "output": []
   }
 }
